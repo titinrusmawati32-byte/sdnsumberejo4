@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Pengguna resmi panel administrasi dan CMS sekolah",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Alamat email terdaftar admin di Firebase Authentication"
+        },
+        "username": {
+          "type": "string",
+          "description": "ID Pengguna / Username rahasia admin",
+          "pattern": "^[a-zA-Z0-9_\\-\\.]+$",
+          "maxLength": 64
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Nama lengkap pejabat/staf pengelola CMS",
+          "maxLength": 100
+        },
+        "role": {
+          "type": "string",
+          "description": "Peran hak akses (superadmin, editor, panitia)",
+          "enum": ["superadmin", "editor", "panitia"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Waktu pembuatan data akun"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Waktu pembaruan data akun"
+        }
+      },
+      "required": ["email", "username", "displayName", "role"]
+    },
+    "AdminWhitelist": {
+      "title": "AdminWhitelist",
+      "description": "Daftar email atau UID yang diizinkan mengakses sistem administrasi",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email resmi admin"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["superadmin", "editor", "panitia"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "suspended"]
+        }
+      },
+      "required": ["email", "role", "status"]
+    }
+  },
+  "firestore": {
+    "/admins/{adminId}": {
+      "schema": "AdminUser",
+      "description": "Dokumen profil dan izin admin berdasarkan UID Firebase Auth"
+    },
+    "/whitelist/{whitelistId}": {
+      "schema": "AdminWhitelist",
+      "description": "Daftar email yang diperbolehkan masuk ke portal admin"
+    }
+  }
+}

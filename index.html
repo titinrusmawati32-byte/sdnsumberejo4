@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDN Sumberejo 04 Ambulu — Unggul dalam Prestasi, Santun Berbudi</title>
+  <meta name="description" content="Website Resmi SDN Sumberejo 04 Ambulu, Kabupaten Jember. Sekolah Dasar unggulan berkarakter luhur, cerdas, berprestasi, dan ramah anak. Informasi Profil, Pengumuman, Galeri, dan Pendaftaran SPMB Online.">
+  <meta property="og:title" content="SDN Sumberejo 04 Ambulu — Unggul dalam Prestasi, Santun Berbudi">
+  <meta property="og:description" content="Website Resmi SDN Sumberejo 04 Ambulu, Kabupaten Jember. Informasi Profil Sekolah, Dewan Guru, Program Unggulan, Pengumuman, dan Pendaftaran SPMB Online.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       TOP INFORMATION BAR
+       ========================================== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-info">
+        <span class="top-info-item top-info-address">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span data-config="alamat">Jl. Lapangan No. 88 Krajan Kidul, Desa Sumberejo, Kec. Ambulu, Kab. Jember, Jawa Timur</span>
+        </span>
+        <span class="top-info-item top-info-hours top-keep-mobile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span data-config="jamLayanan">Senin - Jumat, 07:00 - 13:00 WIB</span>
+        </span>
+      </div>
+      <div class="top-info">
+        <span class="top-info-item top-keep-mobile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <a href="tel:0338123456" data-config="telepon" class="top-bar-phone">(0338) 123456</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MAIN NAVIGATION (STICKY HEADER)
+       ========================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <nav class="navbar" aria-label="Navigasi Utama">
+        <a href="#beranda" class="brand">
+          <img src="assets/img/logo.svg" alt="Logo Resmi SDN Sumberejo 04 Ambulu" class="brand-logo" width="46" height="46">
+          <div class="brand-text">
+            <span class="brand-title" data-config="namaSekolah">SDN SUMBEREJO 04 AMBULU</span>
+            <span class="brand-sub">Unggul dalam Prestasi, Santun Berbudi</span>
+          </div>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Buka navigasi menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-drawer-header">
+            <div style="display: flex; align-items: center; gap: 0.65rem;">
+              <img src="assets/img/logo.svg" alt="Logo" width="34" height="34">
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 800; font-size: 0.88rem; color: var(--primary);">SDN SUMBEREJO 04</div>
+                <div style="font-size: 0.7rem; color: var(--muted-text);">Menu Navigasi</div>
+              </div>
+            </div>
+            <button type="button" class="nav-drawer-close" id="navCloseBtn" aria-label="Tutup menu navigasi">✕</button>
+          </li>
+          <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+          <li><a href="#profil" class="nav-link">Profil</a></li>
+          <li><a href="#guru" class="nav-link">Guru</a></li>
+          <li><a href="#program" class="nav-link">Program</a></li>
+          <li><a href="#fasilitas" class="nav-link">Fasilitas</a></li>
+          <li><a href="#pengumuman" class="nav-link">Pengumuman</a></li>
+          <li><a href="#galeri" class="nav-link">Galeri</a></li>
+          <li><a href="#spmb" class="nav-link">SPMB</a></li>
+          <li><a href="#kontak" class="nav-link">Kontak</a></li>
+          <li><a href="daftar.html" class="nav-link nav-cta">Daftar Sekarang</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <!-- ==========================================
+       MAIN CONTENT
+       ========================================== -->
+  <main>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero hero-video-section" id="beranda">
+      <div class="hero-bg-media" aria-hidden="true">
+        <video class="hero-bg-video" id="heroBgVideo" autoplay muted loop playsinline preload="metadata" poster="assets/img/pengumuman-sumpah-pemuda.svg">
+          <source src="assets/video/opening.mp4" type="video/mp4">
+        </video>
+        <div class="hero-bg-overlay"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>SD Negeri Sumberejo 04 School Concept &middot; Cerdas &amp; Berkarakter</span>
+          </div>
+          <h1>Membentuk Generasi <span class="hero-highlight">Cerdas</span>, Berkarakter Luhur, dan Berprestasi Unggul</h1>
+          <p>Selamat datang di portal informasi resmi <strong data-config="namaSekolah" style="color: #FFFFFF;">SDN Sumberejo 04 Ambulu</strong>. Kami berkomitmen menghadirkan ekosistem pendidikan dasar yang aman, inspiratif, berbasis teknologi, dan berakar kuat pada nilai budi pekerti.</p>
+          <div class="hero-actions">
+            <a href="daftar.html" class="btn btn-secondary">
+              <span>Daftar SPMB Online</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="#profil" class="btn btn-outline">Jelajahi Profil Sekolah</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FEATURE CARDS (4 PILAR KEUNGGULAN SEKOLAH) & STATISTIK -->
+    <section class="container pillars-wrap" aria-label="Keunggulan Utama Sekolah">
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">💡</div>
+          <h3>Smart Learning</h3>
+          <p>Pembelajaran aktif, kreatif, dan kontekstual berbasis Kurikulum Nasional dengan pengenalan literasi digital sejak dini.</p>
+        </article>
+        <article class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">🤝</div>
+          <h3>Karakter &amp; Budi Pekerti</h3>
+          <p>Pembiasaan adab harian, doa bersama, sikap santun, disiplin, dan penguatan nilai luhur Profil Pelajar Pancasila.</p>
+        </article>
+        <article class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">🏆</div>
+          <h3>Talenta &amp; Prestasi</h3>
+          <p>Pembinaan intensif minat bakat akademik, sains, olahraga, pramuka, dan kesenian daerah menuju kompetisi berjenjang.</p>
+        </article>
+        <article class="pillar-card">
+          <div class="pillar-icon" aria-hidden="true">🌿</div>
+          <h3>Lingkungan Sekolah</h3>
+          <p>Kawasan belajar yang hijau, bersih, sehat, serta ramah anak sehingga mendukung tumbuh kembang optimal peserta didik.</p>
+        </article>
+      </div>
+
+      <!-- Bar Statistik Kunci -->
+      <div class="stats-wrapper">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-config="akreditasi">A</div>
+            <div class="stat-label">Akreditasi Sekolah</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-config="jumlahSiswa">185</div>
+            <div class="stat-label">Peserta Didik Aktif</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-config="jumlahGuru">14</div>
+            <div class="stat-label">Guru &amp; Tenaga Kependidikan</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Tingkat Kelulusan</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SAMBUTAN KEPALA SEKOLAH -->
+    <section class="section">
+      <div class="container">
+        <div class="sambutan-box">
+          <div class="sambutan-photo-frame" id="sambutanPhotoFrame">
+            <div style="font-size: 5.5rem; line-height: 1; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.35));" aria-hidden="true">👨‍🏫</div>
+            <div class="sambutan-badge-pill">Kepala Sekolah SDN Sumberejo 04</div>
+          </div>
+          <div>
+            <span class="section-tag">Sambutan Kepala Sekolah</span>
+            <h2 style="margin-bottom: 1rem; color: var(--heading); font-size: clamp(1.6rem, 2.6vw, 2.2rem);">Sinergi Sekolah dan Keluarga untuk Masa Depan Anak Bangsa</h2>
+            <p class="sambutan-quote" data-config="sambutanKepsek">
+              Assalamu’alaikum Warahmatullahi Wabarakatuh. Puji syukur kita panjatkan ke hadirat Tuhan Yang Maha Esa. Melalui portal resmi SDN Sumberejo 04 Ambulu ini, kami berkomitmen memberikan layanan pendidikan dasar yang berkualitas, transparan, dan adaptif terhadap perkembangan zaman. Mari bersama-sama mendampingi putra-putri kita tumbuh menjadi pribadi yang beriman, cerdas, santun, dan berdaya saing.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color);">
+              <div>
+                <div style="font-family: var(--font-display); font-weight: 800; color: var(--primary); font-size: 1rem;" data-config="namaSekolah">SDN SUMBEREJO 04 AMBULU</div>
+                <div style="font-size: 0.85rem; color: var(--muted-text);">Kecamatan Ambulu, Kabupaten Jember</div>
+              </div>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="#profil" class="btn btn-primary btn-sm">Visi &amp; Misi Kami</a>
+                <a href="#kontak" class="btn btn-outline-primary btn-sm">Hubungi Sekolah</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BERITA & PENGUMUMAN TERBARU -->
+    <section class="pengumuman-section section-alt" id="pengumuman">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Berita &amp; Informasi Resmi</span>
+          <h2 class="section-title">Pengumuman Terbaru</h2>
+          <p class="section-subtitle">Informasi terkini seputar kegiatan akademik, agenda sekolah, dan pemberitahuan resmi bagi orang tua/wali murid</p>
+        </div>
+
+        <div class="pengumuman-grid-modern" id="pengumumanContainer">
+          <!-- Dirender secara dinamis dari CMS oleh assets/js/main.js -->
+        </div>
+
+        <div class="pengumuman-bottom-action">
+          <button type="button" class="btn-view-all-pengumuman" onclick="openAllPengumumanModal()">
+            <span>Lihat Semua Pengumuman</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Baca Selengkapnya Pengumuman -->
+    <div class="modal-overlay" id="modalPengumumanDetail" onclick="if(event.target===this) closePengumumanModal()">
+      <div class="modal-box" style="max-width: 660px; text-align: left; position: relative; max-height: 90vh; overflow-y: auto;">
+        <button type="button" onclick="closePengumumanModal()" aria-label="Tutup detail pengumuman" style="position: absolute; top: 1rem; right: 1rem; background: var(--bg-page); border: 1px solid var(--border-color); width: 38px; height: 38px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--primary); font-weight: 700;">✕</button>
+        <div id="modalPengumumanContent"></div>
+      </div>
+    </div>
+
+    <!-- Modal Semua Pengumuman -->
+    <div class="modal-overlay" id="modalAllPengumuman" onclick="if(event.target===this) closeAllPengumumanModal()">
+      <div class="modal-box" style="max-width: 880px; text-align: left; position: relative; max-height: 90vh; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+          <div>
+            <span class="section-tag" style="margin-bottom: 0.25rem;">Arsip Publikasi</span>
+            <h3 style="margin: 0; font-size: 1.35rem; color: var(--heading);">Semua Pengumuman Sekolah</h3>
+          </div>
+          <button type="button" onclick="closeAllPengumumanModal()" aria-label="Tutup daftar pengumuman" style="background: var(--bg-page); border: 1px solid var(--border-color); width: 38px; height: 38px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; font-weight: 700; color: var(--primary);">✕</button>
+        </div>
+        <div id="modalAllPengumumanList" style="display: grid; gap: 1rem;"></div>
+      </div>
+    </div>
+
+    <!-- 5. PROFIL, VISI MISI & SEJARAH SEKOLAH -->
+    <section class="section" id="profil">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Identitas Institusi</span>
+          <h2 class="section-title">Profil, Visi &amp; Misi Sekolah</h2>
+          <p class="section-subtitle">Mengenal arah pendidikan, sejarah perjalanan, dan identitas resmi SDN Sumberejo 04 Ambulu</p>
+        </div>
+
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); margin-bottom: 2rem;">
+          <!-- Visi -->
+          <div class="card" style="border-top: 4px solid var(--primary);">
+            <div class="card-body">
+              <div style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--secondary-blue); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem;">
+                <span>🎯</span> <span>Visi Sekolah</span>
+              </div>
+              <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--primary); font-style: italic; line-height: 1.55; margin-bottom: 1rem;" data-config="visiTeks">
+                "Terwujudnya Peserta Didik yang Beriman, Cerdas, Terampil, Mandiri, dan Berwawasan Lingkungan."
+              </p>
+              <p style="margin-bottom: 0; font-size: 0.93rem;">Visi ini menjadi kompas utama dalam seluruh kegiatan pembelajaran di kelas maupun pembiasaan karakter di lingkungan sekolah.</p>
+            </div>
+          </div>
+
+          <!-- Misi -->
+          <div class="card" style="border-top: 4px solid var(--accent-gold);">
+            <div class="card-body">
+              <div style="display: inline-flex; align-items: center; gap: 0.5rem; color: #B45309; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem;">
+                <span>🚀</span> <span>Misi Sekolah</span>
+              </div>
+              <ol style="padding-left: 1.25rem; display: flex; flex-direction: column; gap: 0.55rem; color: var(--body-text); font-size: 0.94rem;" data-config="misiTeks">
+                <li>Menanamkan keimanan dan ketakwaan melalui pengamalan ajaran agama.</li>
+                <li>Melaksanakan pembelajaran aktif, inovatif, kreatif, efektif, dan menyenangkan.</li>
+                <li>Mengembangkan potensi akademik, seni, dan olahraga peserta didik secara optimal.</li>
+                <li>Membiasakan perilaku santun, disiplin, jujur, dan peduli sesama.</li>
+                <li>Mewujudkan lingkungan sekolah yang bersih, hijau, sehat, dan nyaman.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sejarah & Tabel Identitas -->
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">Sejarah Singkat</h3>
+              <p data-config="sejarahTeks">
+                SD Negeri Sumberejo 04 berdiri sebagai wujud komitmen pemerintah dan masyarakat Desa Sumberejo untuk menyediakan layanan pendidikan dasar yang merata dan berkualitas. Sejak awal berdiri hingga kini, sekolah terus berbenah meningkatkan mutu sarana prasarana, kompetensi pendidik, serta prestasi siswa di berbagai ajang kecamatan maupun kabupaten.
+              </p>
+              <div class="card-footer" style="border-top: none; padding-top: 0.5rem;">
+                <a href="profil.html" class="btn btn-outline-primary btn-sm">Lihat Profil Lengkap &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body" style="padding: 0;">
+              <table class="info-table" style="border: none; border-radius: 0;">
+                <tbody>
+                  <tr>
+                    <th>Nama Satuan</th>
+                    <td data-config="namaSekolah" style="font-weight: 700; color: var(--primary);">SDN SUMBEREJO 04 AMBULU</td>
+                  </tr>
+                  <tr>
+                    <th>Status / Akreditasi</th>
+                    <td>Negeri / Terakreditasi <strong data-config="akreditasi" style="color: var(--success);">A</strong></td>
+                  </tr>
+                  <tr>
+                    <th>Kurikulum</th>
+                    <td>Kurikulum Merdeka &amp; Nasional</td>
+                  </tr>
+                  <tr>
+                    <th>Waktu Belajar</th>
+                    <td data-config="jamLayanan">Senin - Jumat, 07:00 - 13:00 WIB</td>
+                  </tr>
+                  <tr>
+                    <th>Alamat</th>
+                    <td data-config="alamat">Jl. Lapangan No. 88 Krajan Kidul, Sumberejo, Kec. Ambulu, Jember</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PROGRAM PEMBIASAAN & EKSTRAKURIKULER -->
+    <section class="section section-alt" id="program">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Kurikulum &amp; Minat Bakat</span>
+          <h2 class="section-title">Program Unggulan &amp; Ekstrakurikuler</h2>
+          <p class="section-subtitle">Keseimbangan pembelajaran akademik, pembiasaan karakter harian, serta wadah pengembangan bakat siswa</p>
+        </div>
+
+        <!-- Program Pembiasaan Karakter -->
+        <div class="card-grid tri-col" style="margin-bottom: 3rem;">
+          <div class="card" style="border-left: 4px solid var(--primary);">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">📖</div>
+              <h3 class="card-title">Gerakan Literasi Sekolah (GLS)</h3>
+              <p style="margin-bottom: 0;">Membaca buku pengayaan selama 15 menit sebelum pelajaran dimulai untuk menumbuhkan minat baca, perbendaharaan kata, dan daya nalar kritis siswa.</p>
+            </div>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--accent-gold);">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">🕌</div>
+              <h3 class="card-title">Pembinaan Imtak &amp; Adab Pagi</h3>
+              <p style="margin-bottom: 0;">Pembiasaan senyum-sapa-salam, doa bersama, hafalan surat pendek, dan pembinaan akhlak mulia setiap pagi sebelum kegiatan belajar dimulai.</p>
+            </div>
+          </div>
+          <div class="card" style="border-left: 4px solid var(--success);">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">🌱</div>
+              <h3 class="card-title">Jumat Bersih &amp; Cinta Lingkungan</h3>
+              <p style="margin-bottom: 0;">Kegiatan gotong royong merawat taman kelas, edukasi pemilahan sampah, dan senam sehat bersama guna membangun kesadaran ekologis.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kegiatan Ekstrakurikuler (Sinkron CMS) -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+          <h3 style="margin: 0; font-size: 1.35rem; color: var(--heading);">Kegiatan Ekstrakurikuler Pilihan</h3>
+          <a href="program.html" style="font-weight: 700; font-size: 0.9rem; color: var(--secondary-blue);">Lihat Detail Program &rarr;</a>
+        </div>
+
+        <div class="card-grid tri-col" id="ekskulContainer">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">Pramuka (Wajib)</h3>
+              <p>Melatih kemandirian, kedisiplinan, kerjasama regu, kepedulian sosial, dan kepemimpinan peserta didik.</p>
+              <div class="card-footer" style="font-size: 0.85rem; color: var(--muted-text);">
+                <div><strong>Pembina:</strong> Ahmad Rofi'i, S.Pd.SD</div>
+                <div><strong>Jadwal:</strong> Jumat, 13:30 - 15:00 WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">Seni Tari Tradisional</h3>
+              <p>Mengenalkan kekayaan seni budaya Nusantara, melatih kepekaan gerak, wirama, dan kepercayaan diri di atas panggung.</p>
+              <div class="card-footer" style="font-size: 0.85rem; color: var(--muted-text);">
+                <div><strong>Pembina:</strong> Endang Sri Wahyuni, S.Pd.</div>
+                <div><strong>Jadwal:</strong> Kamis, 13:30 - 15:00 WIB</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">Klub Olahraga &amp; Bulu Tangkis</h3>
+              <p>Mengasah kebugaran jasmani, ketangkasan, sportivitas, dan persiapan menghadapi ajang O2SN tingkat kecamatan.</p>
+              <div class="card-footer" style="font-size: 0.85rem; color: var(--muted-text);">
+                <div><strong>Pembina:</strong> Imam Santoso, S.Pd.</div>
+                <div><strong>Jadwal:</strong> Sabtu, 08:00 - 10:00 WIB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. GURU & TENAGA KEPENDIDIKAN -->
+    <section class="section" id="guru">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Sumber Daya Manusia</span>
+          <h2 class="section-title">Guru &amp; Tenaga Kependidikan</h2>
+          <p class="section-subtitle">Pendidik profesional dan berdedikasi tinggi yang siap membimbing tumbuh kembang akademik maupun karakter peserta didik</p>
+        </div>
+
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));" id="guruContainer">
+          <div style="grid-column: 1/-1; text-align: center; color: var(--muted-text); padding: 2.5rem;">
+            Memuat data dewan pendidik...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. GALERI KEGIATAN SEKOLAH (SINKRON CMS) -->
+    <section class="section section-alt" id="galeri">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Dokumentasi Visual</span>
+          <h2 class="section-title">Galeri Kegiatan Sekolah</h2>
+          <p class="section-subtitle">Momen kebersamaan, aktivitas pembelajaran, peringatan hari besar, dan prestasi siswa SDN Sumberejo 04 Ambulu</p>
+        </div>
+
+        <div class="galeri-grid" id="galeriContainer">
+          <!-- Dirender secara dinamis dari CMS oleh assets/js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal Galeri -->
+    <div class="modal-overlay" id="modalGaleriLightbox" onclick="if(event.target===this) closeGaleriLightbox()">
+      <div class="modal-box" style="max-width: 780px; padding: 1.25rem; text-align: left; position: relative;">
+        <button type="button" onclick="closeGaleriLightbox()" aria-label="Tutup pratinjau foto" style="position: absolute; top: 1.75rem; right: 1.75rem; z-index: 5; background: rgba(11, 31, 58, 0.85); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.25); width: 38px; height: 38px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700;">✕</button>
+        <div id="modalGaleriLightboxContent"></div>
+      </div>
+    </div>
+
+    <!-- 9. FASILITAS & SARANA PRASARANA -->
+    <section class="section" id="fasilitas">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Lingkungan Belajar</span>
+          <h2 class="section-title">Fasilitas &amp; Sarana Sekolah</h2>
+          <p class="section-subtitle">Sarana dan prasarana yang bersih, terawat, dan memadai untuk menunjang kenyamanan kegiatan belajar mengajar</p>
+        </div>
+
+        <div class="card-grid tri-col" id="fasilitasContainer">
+          <div class="card">
+            <div class="card-img" style="font-size: 3rem;">🏫</div>
+            <div class="card-body">
+              <h3 class="card-title">Ruang Kelas Representatif</h3>
+              <p>Ruang belajar dengan sirkulasi udara dan pencahayaan alami yang sehat serta dilengkapi media pembelajaran interaktif.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img" style="font-size: 3rem;">📚</div>
+            <div class="card-body">
+              <h3 class="card-title">Perpustakaan Ramah Anak</h3>
+              <p>Koleksi buku bacaan literasi, ensiklopedia sains, buku cerita bergambar, dan sudut baca yang nyaman bagi siswa.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-img" style="font-size: 3rem;">⚽</div>
+            <div class="card-body">
+              <h3 class="card-title">Lapangan Olahraga &amp; Upacara</h3>
+              <p>Area terbuka serbaguna untuk pelaksanaan upacara bendera, senam bersama, kegiatan pramuka, dan olahraga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. INFORMASI SPMB (PENERIMAAN MURID BARU) -->
+    <section class="section section-alt" id="spmb">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Penerimaan Peserta Didik Baru</span>
+          <h2 class="section-title">Informasi Resmi SPMB</h2>
+          <p class="section-subtitle">Panduan jadwal, persyaratan dokumen, dan alur pendaftaran murid baru secara daring maupun luring</p>
+        </div>
+
+        <!-- Status Pendaftaran Live dari CMS -->
+        <div id="spmbStatusAlert" class="spmb-status-badge alert alert-info" style="max-width: 920px; margin: 0 auto 2.25rem auto;">
+          <strong>Status Pendaftaran:</strong> Memeriksa jadwal pembukaan SPMB dari sistem...
+        </div>
+
+        <div class="card-grid tri-col" style="margin-bottom: 3rem;">
+          <div class="card" style="border-top: 4px solid var(--primary);">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">📅</div>
+              <h3 class="card-title">Periode Pendaftaran</h3>
+              <p style="margin-bottom: 0.4rem; font-size: 0.9rem;">Jadwal Pendaftaran Online &amp; Offline:</p>
+              <div style="font-family: var(--font-display); font-weight: 800; color: var(--primary); font-size: 1.08rem; margin-bottom: 0.65rem;">
+                <span data-config="spmbMulai">10 Januari 2027</span> s.d. <span data-config="spmbSelesai">31 Januari 2027</span>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--muted-text); margin: 0;">Verifikasi berkas di sekolah dilayani setiap hari kerja pukul 08:00 - 12:00 WIB.</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--accent-gold);">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">🏷️</div>
+              <h3 class="card-title">Biaya Pendaftaran</h3>
+              <p style="margin-bottom: 0.4rem; font-size: 0.9rem;">Biaya Formulir &amp; Seleksi:</p>
+              <div style="font-family: var(--font-display); font-weight: 800; color: var(--success); font-size: 1.35rem; margin-bottom: 0.65rem;" data-config="biayaPendaftaran">
+                GRATIS (Bebas Biaya)
+              </div>
+              <p style="font-size: 0.85rem; color: var(--muted-text); margin: 0;">SDN Sumberejo 04 Ambulu tidak memungut biaya pendaftaran dalam bentuk apa pun.</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--secondary-blue);">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">📋</div>
+              <h3 class="card-title">Persyaratan Utama</h3>
+              <ul style="padding-left: 1.2rem; font-size: 0.92rem; color: var(--body-text); display: flex; flex-direction: column; gap: 0.45rem; margin: 0;">
+                <li>Usia prioritas <strong>7 tahun</strong> (minimal 6 tahun pada 1 Juli tahun berjalan).</li>
+                <li>Scan / Foto <strong>Kartu Keluarga (KK)</strong> asli.</li>
+                <li>Scan / Foto <strong>Akta Kelahiran</strong> asli.</li>
+                <li>Surat Keterangan Lulus / Ijazah TK (jika ada).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Langkah Pendaftaran -->
+        <div class="steps-grid" style="margin-bottom: 3.5rem;">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <h3>Siapkan Dokumen</h3>
+            <p style="margin: 0; font-size: 0.9rem;">Siapkan foto atau scan Kartu Keluarga (KK) dan Akta Kelahiran yang jelas (maksimal 2 MB).</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <h3>Isi Formulir Online</h3>
+            <p style="margin: 0; font-size: 0.9rem;">Lengkapi biodata calon peserta didik dan orang tua/wali pada halaman <a href="daftar.html" style="font-weight: 700;">Formulir SPMB</a>.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <h3>Simpan Nomor Bukti</h3>
+            <p style="margin: 0; font-size: 0.9rem;">Unduh atau salin <strong>Nomor Pendaftaran</strong> resmi yang terbit otomatis setelah mengirim formulir.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <h3>Verifikasi &amp; Pengumuman</h3>
+            <p style="margin: 0; font-size: 0.9rem;">Panitia memverifikasi berkas dan mengirimkan informasi hasil seleksi melalui portal &amp; WhatsApp.</p>
+          </div>
+        </div>
+
+        <!-- CTA Banner Pendaftaran -->
+        <div class="cta-banner">
+          <h2>Langkah Awal Menuju Masa Depan Gemilang</h2>
+          <p>Daftarkan putra-putri Bapak/Ibu sekarang secara daring dengan mudah, cepat, dan transparan dari rumah tanpa perlu mengantre.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="daftar.html" class="btn btn-secondary">
+              <span>Isi Formulir Pendaftaran Online</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="spmb.html" class="btn btn-outline">Panduan Lengkap SPMB</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. KONTAK & LOKASI SEKOLAH -->
+    <section class="section" id="kontak">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Hubungi Kami</span>
+          <h2 class="section-title">Kontak &amp; Lokasi Sekolah</h2>
+          <p class="section-subtitle">Kami siap melayani kunjungan informasi maupun konsultasi pendaftaran pada jam kerja layanan sekolah</p>
+        </div>
+
+        <div class="card-grid tri-col" style="margin-bottom: 2rem;">
+          <div class="card">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">📍</div>
+              <h3 class="card-title">Alamat Lengkap</h3>
+              <p data-config="alamat" style="margin-bottom: 0;">Jl. Lapangan No. 88 Krajan Kidul, Desa Sumberejo, Kecamatan Ambulu, Kabupaten Jember, Jawa Timur</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">🕒</div>
+              <h3 class="card-title">Jam Layanan Kantor</h3>
+              <p data-config="jamLayanan" style="font-weight: 700; color: var(--primary); margin-bottom: 0.4rem;">Senin - Jumat, 07:00 - 13:00 WIB</p>
+              <p style="font-size: 0.85rem; color: var(--muted-text); margin: 0;">Sabtu, Minggu &amp; Hari Libur Nasional: Tutup</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div style="font-size: 2rem; margin-bottom: 0.65rem;" aria-hidden="true">💬</div>
+              <h3 class="card-title">Saluran Komunikasi</h3>
+              <p style="margin-bottom: 0.75rem; font-size: 0.92rem;">
+                Telepon: <strong data-config="telepon">(0338) 123456</strong><br>
+                Email: <span data-config="email">sdn.sumberejo04@gmail.com</span>
+              </p>
+              <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-secondary btn-sm" data-config="whatsapp" style="align-self: flex-start;">
+                Chat WhatsApp Sekolah
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Peta Google Maps -->
+        <div class="card" style="padding: 1.25rem;">
+          <div style="position: relative; width: 100%; height: 380px; border-radius: var(--radius-md); overflow: hidden; background: var(--bg-muted);">
+            <iframe
+              title="Peta Lokasi SDN Sumberejo 04 Ambulu"
+              data-config="mapEmbedUrl"
+              src="https://maps.google.com/maps?q=SDN+Sumberejo+04+Ambulu+Jember&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style="border: 0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FLOATING WHATSAPP BUTTON
+       ========================================== -->
+  <a href="https://wa.me/6281234567890" class="float-wa" id="floatingWa" target="_blank" rel="noopener" aria-label="Hubungi kami melalui WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.35.49 1.199.534 1.286.044.087.073.188.014.303-.058.116-.087.188-.173.289l-.26.302c-.087.087-.179.182-.077.357.101.174.453.748.971 1.21.666.593 1.229.777 1.402.864.174.087.275.073.376-.044.101-.116.433-.506.549-.68.116-.174.232-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.073.045.419-.099.824z"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.981-1.396A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.062c-1.635 0-3.153-.483-4.428-1.314l-.317-.208-2.962.83.844-2.887-.229-.333A8.026 8.026 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8.062-8 8.062z"/>
+    </svg>
+  </a>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="assets/img/logo.svg" alt="Logo SDN Sumberejo 04 Ambulu" width="44" height="44">
+            <div>
+              <h4 data-config="namaSekolah" style="margin: 0; font-size: 1.05rem;">SDN SUMBEREJO 04 AMBULU</h4>
+              <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 600;">Unggul dalam Prestasi, Santun Berbudi</span>
+            </div>
+          </div>
+          <p>Lembaga pendidikan dasar negeri di Kecamatan Ambulu, Kabupaten Jember yang berfokus pada keunggulan akademik, pembentukan karakter luhur, dan lingkungan belajar ramah anak.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tautan Cepat</h4>
+          <ul class="footer-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="profil.html">Profil &amp; Visi Misi</a></li>
+            <li><a href="guru.html">Dewan Guru</a></li>
+            <li><a href="program.html">Program &amp; Ekstrakurikuler</a></li>
+            <li><a href="fasilitas.html">Fasilitas Sekolah</a></li>
+            <li><a href="#galeri">Galeri Kegiatan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Layanan SPMB</h4>
+          <ul class="footer-links">
+            <li><a href="spmb.html">Informasi &amp; Jadwal SPMB</a></li>
+            <li><a href="daftar.html">Formulir Pendaftaran Online</a></li>
+            <li><a href="pengumuman.html">Pengumuman Sekolah</a></li>
+            <li><a href="kontak.html">Bantuan &amp; Lokasi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak Resmi</h4>
+          <p style="margin-bottom: 0.6rem;">📍 <span data-config="alamat">Jl. Lapangan No. 88 Krajan Kidul, Sumberejo, Kec. Ambulu, Jember</span></p>
+          <p style="margin-bottom: 0.6rem;">📞 <span data-config="telepon">(0338) 123456</span></p>
+          <p style="margin-bottom: 0.6rem;">✉️ <span data-config="email">sdn.sumberejo04@gmail.com</span></p>
+          <p style="margin-bottom: 0;">🕒 <span data-config="jamLayanan">Senin - Jumat, 07:00 - 13:00 WIB</span></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span data-config="namaSekolah">SDN Sumberejo 04 Ambulu</span>. Hak Cipta Dilindungi Undang-Undang.</p>
+        <p>Kabupaten Jember &middot; Provinsi Jawa Timur</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

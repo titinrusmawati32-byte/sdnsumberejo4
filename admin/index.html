@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Administrasi Terbatas — SDN Sumberejo 04 Ambulu</title>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <script type="module" src="/admin/firebase-auth.js"></script>
+</head>
+<body>
+
+  <!-- ==========================================
+       LAYAR LOGIN (OTENTIKASI TERPROTEKSI)
+       ========================================== -->
+  <div id="viewLogin" class="login-wrap" style="display: none;">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="/assets/img/logo.svg" alt="Logo Sekolah" class="login-logo">
+        <h1 class="login-title">PORTAL ADMINISTRASI</h1>
+        <p class="login-sub">SDN Sumberejo 04 Ambulu &middot; Akses Terbatas</p>
+      </div>
+
+      <div id="loginAlert" style="display: none; padding: 0.75rem; margin-bottom: 1rem;" class="card" role="alert"></div>
+
+      <!-- Tombol Login Google (Firebase Auth) -->
+      <div style="margin-bottom: 1.25rem;">
+        <button type="button" id="btnLoginGoogle" class="btn btn-outline" style="width: 100%; padding: 0.8rem 1rem; display: flex; align-items: center; justify-content: center; gap: 0.65rem; font-weight: 700; border-color: #cbd5e1; background: #ffffff; color: #1e293b; box-shadow: 0 1px 3px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s;">
+          <svg width="18" height="18" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+          Masuk dengan Akun Google (Firebase)
+        </button>
+      </div>
+
+      <div style="display: flex; align-items: center; margin: 1.25rem 0; color: var(--text-muted); font-size: 0.78rem;">
+        <span style="flex: 1; height: 1px; background: var(--border);"></span>
+        <span style="padding: 0 0.75rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">atau ID Pengguna</span>
+        <span style="flex: 1; height: 1px; background: var(--border);"></span>
+      </div>
+
+      <form id="formLogin" autocomplete="off">
+        <div class="form-group">
+          <label for="inputUsername" class="form-label">ID Pengguna Resmi</label>
+          <input type="text" id="inputUsername" class="form-control" placeholder="Masukkan ID pengguna" required autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword" class="form-label">Kata Sandi</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" id="btnLogin" class="btn btn-primary" style="width: 100%; padding: 0.85rem; margin-top: 0.5rem;">
+          Verifikasi &amp; Masuk
+        </button>
+      </form>
+
+      <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+        <div style="margin-bottom: 0.65rem;">🔒 Sistem dilindungi otentikasi token sesi &amp; pembatasan percobaan akses.</div>
+        <a href="/index.html" style="color: var(--primary); text-decoration: none; font-weight: 600;">&larr; Kembali ke Halaman Publik</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       APP SHELL (PANEL UTAMA SETELAH LOGIN)
+       ========================================== -->
+  <div id="viewApp" class="app-container" style="display: none;" hidden aria-hidden="true">
+    
+    <!-- Sidebar Kiri -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="/assets/img/logo.svg" alt="Logo" class="sidebar-logo">
+        <div class="sidebar-brand">
+          SDN SUMBEREJO
+          <small>Admin Panel & CMS</small>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-group-title">Utama</div>
+        <a class="nav-item active" data-view="dashboard">
+          <span class="nav-icon">📊</span> Dasbor
+        </a>
+
+        <div class="nav-group-title role-group-konten">Konten & Publikasi</div>
+        <a class="nav-item role-item-konten" data-view="identitas">
+          <span class="nav-icon">🏫</span> Identitas Sekolah
+        </a>
+        <a class="nav-item role-item-konten" data-view="beranda">
+          <span class="nav-icon">🏠</span> Halaman Beranda
+        </a>
+        <a class="nav-item role-item-konten" data-view="profil">
+          <span class="nav-icon">📜</span> Profil & Visi Misi
+        </a>
+        <a class="nav-item role-item-konten" data-view="pengumuman">
+          <span class="nav-icon">📢</span> Pengumuman
+        </a>
+        <a class="nav-item role-item-konten" data-view="guru">
+          <span class="nav-icon">👨‍🏫</span> Dewan Guru
+        </a>
+        <a class="nav-item role-item-konten" data-view="ekskul">
+          <span class="nav-icon">🎯</span> Ekstrakurikuler
+        </a>
+        <a class="nav-item role-item-konten" data-view="fasilitas">
+          <span class="nav-icon">🏢</span> Fasilitas
+        </a>
+        <a class="nav-item role-item-konten" data-view="galeri">
+          <span class="nav-icon">🖼️</span> Galeri Kegiatan
+        </a>
+        <a class="nav-item role-item-konten" data-view="media">
+          <span class="nav-icon">📁</span> Pustaka Media
+        </a>
+
+        <div class="nav-group-title role-group-spmb">Penerimaan Murid (SPMB)</div>
+        <a class="nav-item role-item-spmb" data-view="spmbConfig">
+          <span class="nav-icon">⚙️</span> Jadwal & Kuota SPMB
+        </a>
+        <a class="nav-item role-item-spmb" data-view="pendaftar">
+          <span class="nav-icon">📝</span> Data Pendaftar
+        </a>
+
+        <div class="nav-group-title role-group-super">Sistem & Pengguna</div>
+        <a class="nav-item role-item-super" data-view="users">
+          <span class="nav-icon">👥</span> Pengguna Admin
+        </a>
+        <a class="nav-item role-item-super" data-view="log">
+          <span class="nav-icon">📋</span> Log Aktivitas
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Pembungkus Konten Kanan -->
+    <div class="main-wrapper">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="menu-toggle" id="btnToggleMenu" aria-label="Toggle menu">☰</button>
+          <h2 class="page-title" id="topPageTitle">Dasbor Operasional</h2>
+        </div>
+
+        <div class="header-right">
+          <div id="gasSyncBadge" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.7rem; border-radius: 999px; font-size: 0.76rem; font-weight: 700; background: #dcfce7; color: #15803d; border: 1px solid #86efac;" title="Terhubung ke Google Apps Script secara real-time">
+            <span id="gasSyncDot" style="width: 8px; height: 8px; border-radius: 50%; background: #16a34a; display: inline-block;"></span>
+            <span id="gasSyncText">GAS Realtime Aktif</span>
+          </div>
+          <button type="button" id="btnSyncGasNow" class="btn btn-outline btn-sm" title="Tarik data terbaru dari Google Sheets sekarang">🔄 Sinkronisasi GAS</button>
+          <a href="/index.html" class="btn btn-outline btn-sm" title="Lihat halaman depan website">🌐 Lihat Website</a>
+          <div class="user-badge">
+            <span id="labelUserName">Admin</span>
+            <span class="role-pill" id="labelUserRole">Superadmin</span>
+          </div>
+          <button id="btnLogout" class="btn btn-outline btn-sm">Keluar</button>
+        </div>
+      </header>
+
+      <main class="content-area">
+
+        <!-- ==================== VIEW 1: DASBOR ==================== -->
+        <section id="pane-dashboard" class="view-pane">
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="stat-icon blue">📝</div>
+              <div>
+                <div class="stat-value" id="statPendaftarBaru">0</div>
+                <div class="stat-label">Pendaftar Baru (Perlu Verifikasi)</div>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon green">🎓</div>
+              <div>
+                <div class="stat-value" id="statTotalPendaftar">0</div>
+                <div class="stat-label">Total Pendaftar Periode Ini</div>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon yellow">📅</div>
+              <div>
+                <div class="stat-value" id="statStatusSpmb">Buka</div>
+                <div class="stat-label" id="statTglSpmb">Hingga 31 Jan 2027</div>
+              </div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-icon blue">📢</div>
+              <div>
+                <div class="stat-value" id="statPengumumanTayang">0</div>
+                <div class="stat-label">Pengumuman Aktif</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alert Peringatan Jadwal Kedaluwarsa -->
+          <div id="spmbExpiredAlert" class="card" style="display: none; border-left: 5px solid var(--danger); background: var(--danger-bg);">
+            <strong style="color: var(--danger);">⚠️ Perhatian Jadwal SPMB:</strong>
+            <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">
+              Tanggal batas akhir SPMB telah terlewat, namun status pendaftaran masih terbuka. Mohon sesuaikan tanggal penutupan atau ubah status menjadi tutup di menu <strong>Jadwal & Kuota SPMB</strong>.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Pendaftar Terbaru yang Perlu Diverifikasi</h3>
+              <a class="btn btn-outline btn-sm" onclick="AppRouter.navigate('pendaftar')">Lihat Semua</a>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>No. Pendaftaran</th>
+                    <th>Nama Calon Murid</th>
+                    <th>Waktu Masuk</th>
+                    <th>No. WhatsApp</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="dashTablePendaftar">
+                  <tr><td colspan="5" style="text-align: center; color: var(--text-muted);">Memuat data pendaftar...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 2: IDENTITAS SEKOLAH ==================== -->
+        <section id="pane-identitas" class="view-pane" style="display: none;">
+          <form id="formIdentitas">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Data Lembaga Resmi</h3>
+              </div>
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label class="form-label">Nama Resmi Sekolah</label>
+                  <input type="text" name="namaSekolah" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Status Akreditasi</label>
+                  <input type="text" name="akreditasi" class="form-control" placeholder="Contoh: A">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Alamat Lengkap</label>
+                <textarea name="alamat" rows="2" class="form-control" required></textarea>
+              </div>
+
+              <div class="form-row three-col">
+                <div class="form-group">
+                  <label class="form-label">Nomor Telepon Kantor</label>
+                  <input type="text" name="telepon" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">No. WhatsApp Informasi</label>
+                  <input type="text" name="whatsapp" class="form-control" placeholder="6281234567890">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email Resmi Sekolah</label>
+                  <input type="email" name="email" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label class="form-label">Jam Operasional Layanan</label>
+                  <input type="text" name="jamLayanan" class="form-control" placeholder="Senin - Jumat, 07:00 - 13:00 WIB">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">URL Embed Peta Google Maps</label>
+                  <input type="url" name="mapEmbedUrl" class="form-control">
+                </div>
+              </div>
+            </div>
+
+            <div class="dirty-bar" id="barIdentitas">
+              <div class="dirty-text">💡 Simpan perubahan untuk langsung memperbarui situs web.</div>
+              <button type="submit" class="btn btn-secondary">Simpan Identitas Sekolah</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ==================== VIEW 3: HALAMAN BERANDA ==================== -->
+        <section id="pane-beranda" class="view-pane" style="display: none;">
+          <form id="formBeranda">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Sambutan Kepala Sekolah</h3>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Teks Pidato Sambutan <small>(Mendukung paragraf baru)</small></label>
+                <textarea name="sambutanKepsek" rows="6" class="form-control"></textarea>
+              </div>
+
+              <div class="form-row three-col">
+                <div class="form-group">
+                  <label class="form-label">Statistik: Jumlah Siswa</label>
+                  <input type="number" name="jumlahSiswa" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Statistik: Jumlah Guru</label>
+                  <input type="number" name="jumlahGuru" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Biaya Pendaftaran SPMB</label>
+                  <input type="text" name="biayaPendaftaran" class="form-control" placeholder="Gratis (Bebas Biaya)">
+                </div>
+              </div>
+            </div>
+
+            <div class="dirty-bar" id="barBeranda">
+              <div class="dirty-text">💡 Simpan teks sambutan dan statistik beranda.</div>
+              <button type="submit" class="btn btn-secondary">Simpan Perubahan Beranda</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ==================== VIEW 4: HALAMAN PROFIL ==================== -->
+        <section id="pane-profil" class="view-pane" style="display: none;">
+          <form id="formProfil">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Visi & Misi Lembaga</h3>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Visi Sekolah</label>
+                <textarea name="visiTeks" rows="3" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Misi Sekolah <small>(Gunakan tanda strip '- ' di awal baris untuk poin-poin)</small></label>
+                <textarea name="misiTeks" rows="6" class="form-control"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Sejarah Ringkas Sekolah</label>
+                <textarea name="sejarahTeks" rows="5" class="form-control"></textarea>
+              </div>
+            </div>
+
+            <div class="dirty-bar" id="barProfil">
+              <div class="dirty-text">💡 Simpan visi, misi, dan sejarah profil sekolah.</div>
+              <button type="submit" class="btn btn-secondary">Simpan Profil Sekolah</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ==================== VIEW 5: PENGATURAN SPMB ==================== -->
+        <section id="pane-spmbConfig" class="view-pane" style="display: none;">
+          <form id="formSpmbConfig">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Jadwal & Periode Penerimaan Siswa Baru</h3>
+              </div>
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label class="form-label">Status Pendaftaran Online</label>
+                  <select name="spmbStatus" class="form-control">
+                    <option value="buka">Buka (Menerima Pendaftaran)</option>
+                    <option value="tutup">Tutup (Pendaftaran Ditutup)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Keterangan Jadwal Berikutnya <small>(Tampil saat status tutup)</small></label>
+                  <input type="text" name="spmbJadwalBerikutnya" class="form-control" placeholder="Contoh: Gelombang 2 dibuka Mei 2027">
+                </div>
+              </div>
+
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label class="form-label">Tanggal Mulai Pendaftaran</label>
+                  <input type="date" name="spmbMulai" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tanggal Batas Penutupan</label>
+                  <input type="date" name="spmbSelesai" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Batas Kuota Pendaftar per Hari <small>(Anti-spam server)</small></label>
+                <input type="number" name="batasHarianDaftar" class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="dirty-bar" id="barSpmb">
+              <div class="dirty-text">💡 Perubahan status buka/tutup langsung mempengaruhi tombol pendaftaran di web.</div>
+              <button type="submit" class="btn btn-secondary">Simpan Jadwal SPMB</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- ==================== VIEW 6: DATA PENDAFTAR SPMB ==================== -->
+        <section id="pane-pendaftar" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Daftar Formulir Masuk</h3>
+              <div style="display: flex; gap: 0.5rem;">
+                <button type="button" id="btnExportCsv" class="btn btn-outline btn-sm">📥 Ekspor CSV</button>
+                <button type="button" id="btnRefreshPendaftar" class="btn btn-primary btn-sm">🔄 Muat Ulang</button>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <select id="filterStatusPendaftar" class="form-control" style="max-width: 200px;">
+                <option value="">-- Semua Status --</option>
+                <option value="baru">Baru</option>
+                <option value="diproses">Diproses</option>
+                <option value="diterima">Diterima</option>
+                <option value="ditolak">Ditolak</option>
+                <option value="dibatalkan">Dibatalkan</option>
+              </select>
+
+              <input type="text" id="searchPendaftar" class="form-control" placeholder="Cari nama murid atau nomor pendaftaran..." style="max-width: 320px;">
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>No. Registrasi</th>
+                    <th>Nama Calon Murid</th>
+                    <th>Waktu Masuk</th>
+                    <th>Nama Wali</th>
+                    <th>No. WA</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tablePendaftarBody">
+                  <tr><td colspan="7" style="text-align: center;">Memuat daftar pendaftar...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 7: PENGUMUMAN ==================== -->
+        <section id="pane-pengumuman" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Daftar Pengumuman Sekolah</h3>
+              <button class="btn btn-primary btn-sm" onclick="AppCollections.openModal('Pengumuman')">+ Tambah Pengumuman</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Thumbnail Foto</th>
+                    <th>Judul & Ringkasan</th>
+                    <th>Tanggal</th>
+                    <th>Status Tayang</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tablePengumumanBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 8: GURU ==================== -->
+        <section id="pane-guru" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Dewan Guru & Tenaga Didik</h3>
+              <button class="btn btn-primary btn-sm" onclick="AppCollections.openModal('Guru')">+ Tambah Guru Baru</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Urutan</th>
+                    <th>Foto</th>
+                    <th>Nama Lengkap & Gelar</th>
+                    <th>Jabatan / Tugas</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tableGuruBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 9: EKSTRAKURIKULER ==================== -->
+        <section id="pane-ekskul" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Program Ekstrakurikuler</h3>
+              <button class="btn btn-primary btn-sm" onclick="AppCollections.openModal('Ekstrakurikuler')">+ Tambah Kegiatan</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nama Kegiatan</th>
+                    <th>Pembina / Pelatih</th>
+                    <th>Jadwal Mingguan</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tableEkskulBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 10: FASILITAS ==================== -->
+        <section id="pane-fasilitas" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Fasilitas & Sarana Belajar</h3>
+              <button class="btn btn-primary btn-sm" onclick="AppCollections.openModal('Fasilitas')">+ Tambah Fasilitas</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Urut</th>
+                    <th>Foto</th>
+                    <th>Nama Sarana</th>
+                    <th>Deskripsi</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tableFasilitasBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 11: GALERI ==================== -->
+        <section id="pane-galeri" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Dokumentasi Galeri</h3>
+              <button class="btn btn-primary btn-sm" onclick="AppCollections.openModal('Galeri')">+ Tambah Media Galeri</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Tanggal</th>
+                    <th>Judul Dokumentasi</th>
+                    <th>Tipe</th>
+                    <th>Tautan Media</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tableGaleriBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 12: PUSTAKA MEDIA ==================== -->
+        <section id="pane-media" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Pustaka Media Terunggah</h3>
+              <div style="display: flex; gap: 0.5rem;">
+                <input type="file" id="inputUploadMediaFile" accept="image/*" style="display: none;">
+                <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('inputUploadMediaFile').click()">
+                  📷 Unggah Foto Baru
+                </button>
+              </div>
+            </div>
+
+            <div id="mediaUploadProgressBar" style="display: none; margin-bottom: 1rem; background: var(--bg-app); padding: 0.75rem; border-radius: var(--radius);">
+              <span id="mediaUploadProgressText">Mengompresi dan mengunggah gambar...</span>
+            </div>
+
+            <div class="media-grid" id="mediaLibraryGrid">
+              <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 2rem;">
+                Memuat pustaka media...
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 13: PENGGUNA ADMIN ==================== -->
+        <section id="pane-users" class="view-pane" style="display: none;">
+          <!-- Card Integrasi Firebase Authentication & Firestore -->
+          <div class="card" style="margin-bottom: 1.5rem; border-left: 4px solid #f59e0b; background: #fffdf5;">
+            <div class="card-header" style="border-bottom: 1px solid #fef3c7; flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <h3 class="card-title" style="color: #92400e; display: flex; align-items: center; gap: 0.5rem;">
+                  <span>🔥</span> Integrasi Firebase Authentication &amp; Firestore
+                </h3>
+                <p style="font-size: 0.85rem; color: #b45309; margin-top: 0.25rem;">
+                  Project Cloud: <strong>flowing-landing-p1ttq</strong> &middot; Database ID: <code>ai-studio-senapati-576aa692-d29b-404c-a567-79c97545d9e4</code>
+                </p>
+              </div>
+              <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.8rem; border-radius: 999px; font-size: 0.76rem; font-weight: 700; background: #dcfce7; color: #15803d; border: 1px solid #86efac;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #16a34a; display: inline-block;"></span>
+                Firebase Aktif
+              </span>
+            </div>
+            <div style="padding: 1.25rem; font-size: 0.9rem; line-height: 1.6; color: #78350f;">
+              <div style="margin-bottom: 0.6rem;">
+                <strong>Akun Superadmin Utama (Whitelist):</strong> <code style="background: #ffffff; padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid #fde68a; font-weight: 700;">bahanajarp@gmail.com</code>
+              </div>
+              <p style="margin-bottom: 0.85rem; color: #92400e; font-size: 0.85rem;">
+                Anda dapat login menggunakan tombol <strong>"Masuk dengan Akun Google"</strong> secara instan dengan akun di atas. Anda juga dapat mendaftarkan username rahasia baru atau staf lain ke database Firebase &amp; CMS menggunakan tombol di bawah.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Daftar Akun Pengelola Resmi</h3>
+              <button class="btn btn-primary btn-sm" id="btnTambahUser">+ Tambah Pengguna</button>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nama Pengguna</th>
+                    <th>Nama Tampilan</th>
+                    <th>Peran</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tableUsersBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 14: LOG AKTIVITAS ==================== -->
+        <section id="pane-log" class="view-pane" style="display: none;">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Rekam Jejak Aktivitas Sistem</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Waktu (WIB)</th>
+                    <th>Pengguna</th>
+                    <th>Aksi</th>
+                    <th>Modul</th>
+                    <th>Keterangan</th>
+                  </tr>
+                </thead>
+                <tbody id="tableLogBody">
+                  <tr><td colspan="5" style="text-align: center;">Memuat rekam aktivitas...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL: DETAIL PENDAFTAR SPMB
+       ========================================== -->
+  <div class="modal-overlay" id="modalDetailPendaftar">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="card-title" id="mPendaftarNomor">Rincian Pendaftaran</h3>
+        <button type="button" class="btn btn-outline btn-sm" onclick="AppPendaftar.closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="mPendaftarBody">
+        <!-- Rincian diisi secara dinamis -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="AppPendaftar.closeModal()">Batal</button>
+        <button type="button" id="btnSimpanStatusPendaftar" class="btn btn-primary">Simpan Verifikasi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL: FORM KOLEKSI & UPLOAD MEDIA (FOTO & VIDEO)
+       ========================================== -->
+  <div class="modal-overlay" id="modalCollection">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="card-title" id="mCollectionTitle">Kelola Data</h3>
+        <button type="button" class="btn btn-outline btn-sm" onclick="AppCollections.closeModal()">✕</button>
+      </div>
+      <form id="formCollectionItem">
+        <div class="modal-body" id="mCollectionBody">
+          <!-- Form dinamis diisi oleh JavaScript -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="AppCollections.closeModal()">Batal</button>
+          <button type="submit" id="btnSubmitCollection" class="btn btn-primary">Simpan Data</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Wadah Toast Notifikasi -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Skrip JavaScript -->
+  <script src="/assets/js/config.js"></script>
+  <script src="/admin/image.js"></script>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="boardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#193b2d"/>
+      <stop offset="50%" stop-color="#0f291e"/>
+      <stop offset="100%" stop-color="#091b13"/>
+    </linearGradient>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8d5b4c"/>
+      <stop offset="100%" stop-color="#5c382e"/>
+    </linearGradient>
+    <linearGradient id="deskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b2b23"/>
+      <stop offset="100%" stop-color="#241913"/>
+    </linearGradient>
+    <linearGradient id="book1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#be185d"/>
+    </linearGradient>
+    <linearGradient id="book2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="book3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="shadowPts" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Board Frame -->
+  <rect width="600" height="320" rx="14" fill="url(#woodGrad)"/>
+  <!-- Inner Green Chalkboard -->
+  <rect x="12" y="12" width="576" height="250" rx="8" fill="url(#boardGrad)"/>
+
+  <!-- Subtle Chalkboard Grid / Guidelines -->
+  <line x1="12" y1="80" x2="588" y2="80" stroke="#ffffff" stroke-width="0.5" stroke-dasharray="8 8" opacity="0.12"/>
+  <line x1="12" y1="150" x2="588" y2="150" stroke="#ffffff" stroke-width="0.5" stroke-dasharray="8 8" opacity="0.12"/>
+
+  <!-- Bell/Leaf Accent Top Right -->
+  <g transform="translate(525, 45)">
+    <path d="M0,0 Q12,-15 20,-5 Q25,12 10,20 Q0,10 0,0 Z" fill="#ef4444" opacity="0.85"/>
+    <circle cx="12" cy="5" r="3" fill="#ffffff" opacity="0.5"/>
+  </g>
+
+  <!-- Headline Typography on Board -->
+  <g filter="url(#shadowPts)">
+    <text x="325" y="85" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700" fill="#ffffff" letter-spacing="1">Jadwal</text>
+    <text x="325" y="130" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="27" font-weight="900" fill="#ffffff">Penilaian Tengah Semester</text>
+    <text x="325" y="172" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="900" fill="#ffffff" letter-spacing="2">(PTS)</text>
+  </g>
+
+  <!-- Wooden Desk Surface -->
+  <rect x="0" y="240" width="600" height="80" fill="url(#deskGrad)"/>
+  <line x1="0" y1="240" x2="600" y2="240" stroke="#5c382e" stroke-width="3"/>
+
+  <!-- Stack of Books Left -->
+  <g transform="translate(50, 140)">
+    <!-- Book 3 (Bottom - Yellow) -->
+    <rect x="0" y="72" width="130" height="24" rx="4" fill="url(#book3)"/>
+    <rect x="12" y="76" width="114" height="16" fill="#fef9c3"/>
+    <rect x="0" y="72" width="14" height="24" rx="2" fill="#b45309"/>
+
+    <!-- Book 2 (Middle - Cyan) -->
+    <rect x="10" y="44" width="125" height="24" rx="4" fill="url(#book2)"/>
+    <rect x="22" y="48" width="109" height="16" fill="#ecfeff"/>
+    <rect x="10" y="44" width="14" height="24" rx="2" fill="#0369a1"/>
+
+    <!-- Book 1 (Top - Pink) -->
+    <rect x="20" y="16" width="118" height="24" rx="4" fill="url(#book1)"/>
+    <rect x="32" y="20" width="102" height="16" fill="#fdf2f8"/>
+    <rect x="20" y="16" width="14" height="24" rx="2" fill="#9d174d"/>
+  </g>
+
+  <!-- Pen Cup with Pencils -->
+  <g transform="translate(195, 175)">
+    <!-- Cup -->
+    <rect x="0" y="25" width="36" height="42" rx="4" fill="#38bdf8"/>
+    <!-- Pencil 1 (Yellow) -->
+    <line x1="8" y1="28" x2="-4" y2="-8" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+    <polygon points="-4,-8 -7,-14 -1,-11" fill="#1e293b"/>
+    <!-- Pencil 2 (Red) -->
+    <line x1="18" y1="28" x2="18" y2="-12" stroke="#ef4444" stroke-width="5" stroke-linecap="round"/>
+    <polygon points="18,-12 15,-18 21,-18" fill="#1e293b"/>
+    <!-- Ruler (Green) -->
+    <rect x="26" y="-14" width="8" height="48" rx="2" fill="#22c55e" transform="rotate(15, 26, -14)"/>
+  </g>
+
+  <!-- Open Books / Papers Center -->
+  <g transform="translate(245, 222)">
+    <!-- White paper sheets -->
+    <polygon points="0,20 60,15 120,20 115,35 0,35" fill="#f8fafc"/>
+    <polygon points="10,12 70,8 130,12 125,26 10,26" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+
+  <!-- Sleek Modern Open Laptop on Right -->
+  <g transform="translate(390, 160)">
+    <!-- Screen Frame -->
+    <rect x="10" y="0" width="145" height="92" rx="6" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <!-- Glowing Screen -->
+    <rect x="16" y="6" width="133" height="80" rx="3" fill="#0284c7"/>
+    <!-- Screen Graphic Lines -->
+    <line x1="28" y1="26" x2="80" y2="26" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <line x1="28" y1="38" x2="110" y2="38" stroke="#bae6fd" stroke-width="2" stroke-linecap="round"/>
+    <line x1="28" y1="48" x2="95" y2="48" stroke="#bae6fd" stroke-width="2" stroke-linecap="round"/>
+    <!-- Pie/Bar Graph on Laptop -->
+    <rect x="105" y="55" width="8" height="20" fill="#38bdf8"/>
+    <rect x="117" y="45" width="8" height="30" fill="#facc15"/>
+    <rect x="129" y="35" width="8" height="40" fill="#4ade80"/>
+    <!-- Laptop Base Keyboard -->
+    <polygon points="0,92 165,92 180,105 -15,105" fill="#cbd5e1"/>
+    <rect x="65" y="94" width="35" height="8" rx="2" fill="#94a3b8"/>
+  </g>
+</svg>

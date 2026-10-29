@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isBootstrappedAdmin() {
+      return isVerified() && (
+        request.auth.token.email == 'bahanajarp@gmail.com'
+      );
+    }
+
+    function isAdmin() {
+      return isBootstrappedAdmin() || (
+        isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isValidAdminUser(data) {
+      return data.keys().hasAll(['email', 'username', 'displayName', 'role']) &&
+             data.keys().hasOnly(['email', 'username', 'displayName', 'role', 'createdAt', 'updatedAt']) &&
+             data.email is string && data.email.size() <= 100 &&
+             data.username is string && data.username.size() >= 3 && data.username.size() <= 64 &&
+             data.displayName is string && data.displayName.size() <= 100 &&
+             data.role in ['superadmin', 'editor', 'panitia'];
+    }
+
+    match /admins/{adminId} {
+      allow get: if isOwner(adminId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isValidId(adminId) && isValidAdminUser(request.resource.data) && (isOwner(adminId) || isAdmin());
+      allow update: if isValidId(adminId) && isValidAdminUser(request.resource.data) && (isOwner(adminId) || isAdmin());
+      allow delete: if isAdmin() && !isOwner(adminId);
+    }
+
+    match /whitelist/{whitelistId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

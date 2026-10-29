@@ -1,0 +1,8 @@
+{
+  "name": "SD Negeri Sumberejo 04",
+  "description": "Situs resmi SD Negeri Sumberejo 04. Informasi profil sekolah, dewan guru, program ekstrakurikuler, fasilitas, SPMB, dan kontak.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
