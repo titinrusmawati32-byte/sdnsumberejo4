@@ -1,8 +1,51 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "dist",
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/daftar",
+      "destination": "/daftar.html"
+    },
+    {
+      "source": "/profil",
+      "destination": "/profil.html"
+    },
+    {
+      "source": "/guru",
+      "destination": "/guru.html"
+    },
+    {
+      "source": "/fasilitas",
+      "destination": "/fasilitas.html"
+    },
+    {
+      "source": "/program",
+      "destination": "/program.html"
+    },
+    {
+      "source": "/spmb",
+      "destination": "/spmb.html"
+    },
+    {
+      "source": "/pengumuman",
+      "destination": "/pengumuman.html"
+    },
+    {
+      "source": "/kontak",
+      "destination": "/kontak.html"
+    }
+  ],
   "headers": [
     {
       "source": "/admin/(.*)",
