@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "build": "node --check server.js && node --check lib/cmsStore.js && node --check api/gas.js && node --check api/firebase-config.js && node --check admin/admin.js && node --check assets/js/main.js",
-    "lint": "node --check server.js && node --check lib/cmsStore.js && node --check api/gas.js && node --check api/firebase-config.js && node --check admin/admin.js && node --check assets/js/main.js"
+    "build": "node scripts/build.js",
+    "lint": "node scripts/build.js"
   },
   "dependencies": {
     "firebase": "^13.1.0"
