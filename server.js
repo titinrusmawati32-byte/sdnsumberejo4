@@ -346,6 +346,17 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
+    // Server healthcheck endpoint
+    if (pathname === "/api/health" && req.method === "GET") {
+      sendJson(res, 200, {
+        ok: true,
+        status: "healthy",
+        uptime: process.uptime(),
+        time: new Date().toISOString()
+      });
+      return;
+    }
+
     // Force immediate pull from Google Apps Script
     if (pathname === "/api/gas-sync" && req.method === "POST") {
       const ok = await syncFromGoogleAppsScript();
